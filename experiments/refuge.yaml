@@ -1,0 +1,154 @@
+AUTO_RESUME: true
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+DATA_DIR: ''
+GPUS: (0,)
+OUTPUT_DIR: 'output'
+LOG_DIR: 'log'
+WORKERS: 8
+PRINT_FREQ: 20
+
+DATASET:
+  DATASET: refuge 
+  FLIP: true 
+  ROOT: '../../paper-2022/sata-data'
+  ROT_FACTOR: 15.
+  SCALE_FACTOR: 0.2
+  SHIFT_FACTOR: 0.1
+  TEST_SET: test 
+  TRAIN_SET: train
+  TRAIN_SET_1: train
+  TRAIN_SET_2: val
+  GAMMA_TRAIN: gamma_train
+  VAL_SET: val
+  TRAIN_FOLD: 0
+MODEL:
+  INIT_WEIGHTS: true
+  NAME: fovea_net 
+  PRETRAINED: 'models/pretrained/hrnet_w32-36af842e.pth'
+  TARGET_TYPE: gaussian
+  IMAGE_SIZE:
+    - 1064
+    - 1064
+  CROP_SIZE:
+    - 1024
+    - 1024
+  PATCH_SIZE:
+    - 896
+    - 896
+  DS_FACTOR: 4
+  SIGMA: 2
+  SIGMA_ROI: 2
+  MAX_DS_OFFSET: 4
+  MAX_OFFSET: 0
+  REGION_RADIUS: 128
+  ROI_SCALE: 1
+  SELF_ATTEN: true
+  CO_ATTEN: false
+  TRIP_ROI: true
+  ROI_NUM: 2
+  HRNET_ONLY: false
+  HRNET_TYPE: 0
+  EXTRA:
+    PRETRAINED_LAYERS:
+    - 'conv1'
+    - 'bn1'
+    - 'conv2'
+    - 'bn2'
+    - 'layer1'
+    - 'transition1'
+    - 'stage2'
+    - 'transition2'
+    - 'stage3'
+    - 'transition3'
+    - 'stage4'
+    FINAL_CONV_KERNEL: 1
+    STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 32
+      - 64
+      FUSE_METHOD: SUM
+    STAGE3:
+      NUM_MODULES: 4
+      NUM_BRANCHES: 3
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 32
+      - 64
+      - 128
+      FUSE_METHOD: SUM
+    STAGE4:
+      NUM_MODULES: 3
+      NUM_BRANCHES: 4
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 32
+      - 64
+      - 128
+      - 256
+      FUSE_METHOD: SUM
+LOSS:
+  USE_TARGET_WEIGHT: true
+  ROI_WEIGHT: 1.0
+  REGRESS_WEIGHT: 0.0
+TRAIN:
+  BATCH_SIZE_PER_GPU: 4
+  AGE_DATA: False
+  GAMMA_DATA: false
+  SHUFFLE: true 
+  BEGIN_EPOCH: 0
+  END_EPOCH: 100
+  OPTIMIZER: adam
+  LR: 0.001
+  LR_EXP: false
+  LR_FACTOR: 0.1
+  LR_STEP:
+  - 90
+  - 200
+  WD: 0.0001
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  MOMENTUM: 0.9
+  NESTEROV: false
+  FULL_DATA: false
+  EFF_NET: false
+  DATA_CLAHE: false
+  ROI_CLAHE: false
+  MV_IDEA: false
+  MV_IDEA_HM1: false
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  FLIP_TEST: false
+  RELEASE_TEST: true
+  MODEL_FILE: ''
+  DEBUG: false
+  TRIAL_RUN: false
+  TRIAL_DATASET: 2
+DEBUG:
+  DEBUG: true
+  SAVE_HEATMAP_DS_GT: true
+  SAVE_HEATMAP_DS_PRED: true
+  SAVE_HEATMAP_ROI_GT: true 
+  SAVE_HEATMAP_ROI_PRED: true 
+  SAVE_FOVEA_FINAL_GT: false
+  SAVE_FOVEA_FINAL_PRED: false
+  SAVE_FOVEA_ROI_GT: false
+  SAVE_FOVEA_ROI_INIT_PRED: false
+  SAVE_FOVEA_ROI_FINAL_PRED: false
