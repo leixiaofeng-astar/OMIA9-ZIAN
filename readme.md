@@ -8,6 +8,7 @@ Localizing Anatomical Landmarks in Ocular Images using Zoom-In Attentive Network
 ![alt text](https://github.com/leixiaofeng-astar/OMIA9-ZIAN/blob/main/images/sacof_arch.png)
 
 In this paper, we propose a zoom-in attentive network (ZIAN) for anatomical landmark localization in ocular images.
+Input image is down-sampled and fed into the coarse network to get the per-pixel coarse heat-map. The Multi-ROIs centered at the peak pixel on the coarse heat-map, are cropped on the original input image, and fed into the fine network to build their feature representations. Next, Multi-ROIs features are refined by the co-attention module. Finally, multi-ROIs features are concatenated with coarse-level features, processed by self-attention module to get the fine heat-map.
 
 # Quick start
 ## Installation
