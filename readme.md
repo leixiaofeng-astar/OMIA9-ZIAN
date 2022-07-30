@@ -23,9 +23,9 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
 
 4. ZIAN stated trained model download:
 
-4.2 Download ZIAN models trained on REFUGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD(password: xxxx), and put them into output/refuge/fovea_net/refuge/;
+4.1 Download ZIAN models trained on REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/hkuhgy3sudaxsre/model_best_L1038_TL907_hrnet_SATA.pth?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/;
 
-4.3 Download ZIAN models trained on AGE dataset (https://age.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
+4.2 Download ZIAN models trained on AGE dataset (https://age.grand-challenge.org) from either https://www.dropbox.com/s/eyttz30cbzzjs15/model_best_L960_FL14135_dsflipFL13638_hrnet_sata_LR1e4.pth?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
 
 5. Download the REFUGE data and uncompress them into a single directory, including the training, validation, and testing set. The folder structure should be like (by default, we use "sata-data" as ${DATA_ROOT}):
 ```
@@ -44,9 +44,9 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
     ├── OMIA9-ZIAN
     ├── sata-data
 ```
-5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD(password: xxxx), and put them into output/refuge/fovea_net/refuge/;
+5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/bmzx1h1byiexn6v/Dataset-Refuge.zip?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/;
 
-5.2 Download AGE dataset (https://refuge.grand-challenge.org)from Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
+5.2 Download AGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
 
 
 ## Testing
@@ -57,6 +57,20 @@ python3 tools/test.py --cfg experiments/refuge.yaml TEST.MODEL_FILE output/refug
 
 ZIAN with HRNET for scleral spur localization in AS-OCT images
 python3 tools/test.py --cfg experiments/refuge-age.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L960_FL14135_dsflipFL13638_hrnet_sata_LR1e4.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
+
+The running log is as below:
+(base) OMIA9-ZIAN$ python3 tools/test.py --cfg experiments/refuge.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
+=> creating output/refuge/fovea_net/refuge
+=> creating log/refuge/fovea_net/refuge_2022-07-30-19-22
+Namespace(cfg='experiments/refuge.yaml', dataDir='', logDir='', modelDir='', opts=['TEST.MODEL_FILE', 'output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth', 'MODEL.SELF_ATTEN', 'True', 'MODEL.TRIP_ROI', 'True', 'MODEL.CO_ATTEN', 'True', 'MODEL.HRNET_TYPE', '0'], prevModelDir='')
+...
+Test: [1/50]	Time 1.962 (1.962)	LRInit 8.1675 (8.1675)	HRInit 7.8498 (7.8498)	Final 7.8498 (7.8498)	
+Test: [21/50]	Time 0.238 (0.332)	LRInit 5.2200 (6.5387)	HRInit 4.6820 (6.2721)	Final 4.6820 (6.2721)	
+Test: [41/50]	Time 0.223 (0.295)	LRInit 6.6190 (6.3817)	HRInit 7.1447 (6.1534)	Final 7.1447 (6.1534)	
+SDR 5px:0.3675; 10px:0.76; 15px: 0.8775; 20px: 0.9225; L2:9.504680378735065
+SDR 5px:0.4425; 10px:0.785; 15px: 0.89; 20px: 0.925; L2:9.07330446884036
+SDR 5px:0.4425; 10px:0.785; 15px: 0.89; 20px: 0.925; L2:9.07330446884036
+Average L2 Distance on evaluation: lr_L2 = 9.50, hr_L2 = 9.07
 ```
 
 ## Training
