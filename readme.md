@@ -17,13 +17,15 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
    ```
    pip install -r requirements.txt
    ```
-3. Pre-trained model download
+3. Pre-trained model download:
+
 3.1 This ZIAN model uses the official HRNet project (https://github.com/leoxiaobin/deep-high-resolution-net.pytorch), Download HRNET pretrained models from Baidu Yun Drive: https://pan.baidu.com/s/1xucVbfCvkXSTu62b8NuN8Q (password: 6gpu), and put them into models/pretrained/.
-4. ZIAN stated trained model download
-4.2 Download ZIAN models trained on REFUGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD(password: xxxx), and put them into output/refuge/fovea_net/refuge/.
+4. ZIAN stated trained model download:
+
+4.2 Download ZIAN models trained on REFUGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD(password: xxxx), and put them into output/refuge/fovea_net/refuge/;
 4.3 Download ZIAN models trained on AGE dataset (https://age.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
 
-5. Download the REFUGE data and uncompress them into a single directory, including the training, validation, and testing set. The folder structure should be like (by default, we use "sata-data" as ${DATA_ROOT})
+5. Download the REFUGE data and uncompress them into a single directory, including the training, validation, and testing set. The folder structure should be like (by default, we use "sata-data" as ${DATA_ROOT}):
 ```
     ${DATA_ROOT}
         ├── AGE-test
@@ -40,7 +42,8 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
     ├── OMIA9-ZIAN
     ├── sata-data
 ```
-5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD(password: xxxx), and put them into output/refuge/fovea_net/refuge/.
+5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD(password: xxxx), and put them into output/refuge/fovea_net/refuge/;
+
 5.2 Download AGE dataset (https://refuge.grand-challenge.org)from Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
 
 
