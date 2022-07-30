@@ -1,0 +1,157 @@
+****** ZIAN with HRNET for Fovea localication in retina fundus image ****** 
+python3 tools/test.py --cfg experiments/refuge.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
+
+****** ZIAN with HRNET for scleral spur localization in AS-OCT images ****** 
+python3 tools/test.py --cfg experiments/refuge-age.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L960_FL14135_dsflipFL13638_hrnet_sata_LR1e4.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
+
+
+python3 tools/test.py --cfg experiments/refuge.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
+=> creating output/refuge/fovea_net/refuge
+=> creating log/refuge/fovea_net/refuge_2022-07-30-19-22
+Namespace(cfg='experiments/refuge.yaml', dataDir='', logDir='', modelDir='', opts=['TEST.MODEL_FILE', 'output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth', 'MODEL.SELF_ATTEN', 'True', 'MODEL.TRIP_ROI', 'True', 'MODEL.CO_ATTEN', 'True', 'MODEL.HRNET_TYPE', '0'], prevModelDir='')
+AUTO_RESUME: True
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: refuge
+  FLIP: True
+  GAMMA_TRAIN: gamma_train
+  ROOT: ../../paper-2022/sata-data
+  ROT_FACTOR: 15.0
+  SCALE_FACTOR: 0.2
+  SHIFT_FACTOR: 0.1
+  TEST_SET: test
+  TRAIN_FOLD: 0
+  TRAIN_SET: train
+  TRAIN_SET_1: train
+  TRAIN_SET_2: val
+  VAL_SET: val
+DATA_DIR: 
+DEBUG:
+  DEBUG: True
+  SAVE_FOVEA_FINAL_GT: False
+  SAVE_FOVEA_FINAL_PRED: False
+  SAVE_FOVEA_ROI_FINAL_PRED: False
+  SAVE_FOVEA_ROI_GT: False
+  SAVE_FOVEA_ROI_INIT_PRED: False
+  SAVE_HEATMAP_DS_GT: True
+  SAVE_HEATMAP_DS_PRED: True
+  SAVE_HEATMAP_ROI_GT: True
+  SAVE_HEATMAP_ROI_PRED: True
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  REGRESS_WEIGHT: 0.0
+  ROI_WEIGHT: 1.0
+  USE_TARGET_WEIGHT: True
+MODEL:
+  CO_ATTEN: True
+  CROP_SIZE: [1024, 1024]
+  DS_FACTOR: 4
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: ['conv1', 'bn1', 'conv2', 'bn2', 'layer1', 'transition1', 'stage2', 'transition2', 'stage3', 'transition3', 'stage4']
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [32, 64]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [32, 64, 128]
+      NUM_MODULES: 4
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4, 4]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [32, 64, 128, 256]
+      NUM_MODULES: 3
+  HRNET_ONLY: False
+  HRNET_TYPE: 0
+  IMAGE_SIZE: [1064, 1064]
+  INIT_WEIGHTS: True
+  MAX_DS_OFFSET: 4
+  MAX_OFFSET: 0
+  NAME: fovea_net
+  PATCH_SIZE: [896, 896]
+  PRETRAINED: models/pretrained/hrnet_w32-36af842e.pth
+  REGION_RADIUS: 128
+  ROI_NUM: 2
+  ROI_SCALE: 1
+  SELF_ATTEN: True
+  SIGMA: 2
+  SIGMA_ROI: 2
+  TARGET_TYPE: gaussian
+  TRIP_ROI: True
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 20
+RANK: 0
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  DEBUG: False
+  FLIP_TEST: False
+  MODEL_FILE: output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth
+  RELEASE_TEST: True
+  TRIAL_DATASET: 2
+  TRIAL_RUN: False
+TRAIN:
+  AGE_DATA: False
+  BATCH_SIZE_PER_GPU: 4
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  DATA_CLAHE: False
+  EFF_NET: False
+  END_EPOCH: 100
+  FULL_DATA: False
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  GAMMA_DATA: False
+  LR: 0.001
+  LR_EXP: False
+  LR_FACTOR: 0.1
+  LR_STEP: [90, 200]
+  MOMENTUM: 0.9
+  MV_IDEA: False
+  MV_IDEA_HM1: False
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  ROI_CLAHE: False
+  SHUFFLE: True
+  WD: 0.0001
+WORKERS: 8
+=> We use HRNET in coarse stage network
+poly-in-squeeze: pool_modes_feat=softmax, mid_type=shared, trans_output_type=private
+poly-in-squeeze in_feat_dim: 48, feat_dim: 48
+poly-squeeze-out: pool_modes_feat=softmax, mid_type=shared, trans_output_type=private
+poly-squeeze-out in_feat_dim: 48, feat_dim: 48
+Polyformer layer: poly, 48 channels, no layernorm
+=> loading model from output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth
+Total Trainable Params: 85714918
+/home/xiaofeng/anaconda3/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='mean' instead.
+  warnings.warn(warning.format(ret))
+Dataset preparation for Refuge model on fovea localization
+=> load 400 samples
+/home/xiaofeng/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py:3325: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+  warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+/home/xiaofeng/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py:3825: UserWarning: Default grid_sample and affine_grid behavior has changed to align_corners=False since 1.3.0. Please specify align_corners=True if the old behavior is desired. See the documentation of grid_sample for details.
+  warnings.warn(
+/home/xiaofeng/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py:3451: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+Test: [1/50]	Time 1.962 (1.962)	LRInit 8.1675 (8.1675)	HRInit 7.8498 (7.8498)	Final 7.8498 (7.8498)	
+Test: [21/50]	Time 0.238 (0.332)	LRInit 5.2200 (6.5387)	HRInit 4.6820 (6.2721)	Final 4.6820 (6.2721)	
+Test: [41/50]	Time 0.223 (0.295)	LRInit 6.6190 (6.3817)	HRInit 7.1447 (6.1534)	Final 7.1447 (6.1534)	
+SDR 5px:0.3675; 10px:0.76; 15px: 0.8775; 20px: 0.9225; L2:9.504680378735065
+SDR 5px:0.4425; 10px:0.785; 15px: 0.89; 20px: 0.925; L2:9.07330446884036
+SDR 5px:0.4425; 10px:0.785; 15px: 0.89; 20px: 0.925; L2:9.07330446884036
+Average L2 Distance on evaluation: lr_L2 = 9.50, hr_L2 = 9.07
+SATA Test Program Exit ... 
