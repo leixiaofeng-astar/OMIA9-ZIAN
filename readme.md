@@ -63,3 +63,11 @@ python3 tools/train.py --cfg experiments/refuge.yaml MODEL.SELF_ATTEN True MODEL
 ZIAN with HRNET for scleral spur localization in AS-OCT images
 python3 tools/train.py --cfg experiments/refuge-age.yaml MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0 TRAIN.LR 0.0006 TRAIN.END_EPOCH 140 TRAIN.BATCH_SIZE_PER_GPU 4
 ```
+
+## If you find this repository useful, please cite our paper:
+ 
+    @misc{lei2022zian,
+    title={Localizing Anatomical Landmarks in Ocular Images using Zoom-In Attentive Networks},
+    author={Xiaofeng Lei, Shaohua Li, Xinxing Xu, Huazhu Fu, Yong Liu, Yih-Chung Tham, Yangqin Feng, Mingrui Tan, Yanyu Xu, Jocelyn Hui Lin Goh, Rick Siow Mong Goh, and Ching-Yu Cheng},
+    year={2022},
+    }
