@@ -4,8 +4,6 @@ from __future__ import print_function
 
 import logging
 import os
-from collections import OrderedDict
-from scipy.io import loadmat, savemat
 from openpyxl import load_workbook
 import csv
 import cv2
