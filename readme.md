@@ -56,7 +56,7 @@ ZIAN with HRNET for Fovea localication in retina fundus image
 python3 tools/test.py --cfg experiments/refuge.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
 
 ZIAN with HRNET for scleral spur localization in AS-OCT images
-python3 tools/test.py --cfg experiments/refuge-age.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L960_FL14135_dsflipFL13638_hrnet_sata_LR1e4.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
+python3 tools/test.py --cfg experiments/refuge-age.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L960_FL14135_dsflipFL13638_hrnet_sata_LR1e4.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True TEST.FLIP_TEST True MODEL.HRNET_TYPE 0
 
 The running log is as below:
 (base) OMIA9-ZIAN$ python3 tools/test.py --cfg experiments/refuge.yaml TEST.MODEL_FILE output/refuge/fovea_net/refuge/model_best_L1038_TL907_hrnet_SATA.pth MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0
