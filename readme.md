@@ -46,7 +46,7 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
 ```
 5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/bmzx1h1byiexn6v/Dataset-Refuge.zip?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/;
 
-5.2 Download AGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
+5.2 Download AGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/15dd7eYDJf1H8nZ7ZA3BC_Q (password: b232), and put them into output/refuge/fovea_net/refuge/.
 
 
 ## Testing
