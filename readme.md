@@ -23,7 +23,7 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
 
 4. ZIAN stated trained model download:
 
-4.1 Download ZIAN models trained on REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/hkuhgy3sudaxsre/model_best_L1038_TL907_hrnet_SATA.pth?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/;
+4.1 Download ZIAN models trained on REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/hkuhgy3sudaxsre/model_best_L1038_TL907_hrnet_SATA.pth?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/1iOtIDG7YGpb1OYOPcYIzYg (password: srmi), and put them into output/refuge/fovea_net/refuge/;
 
 4.2 Download ZIAN models trained on AGE dataset (https://age.grand-challenge.org) from either https://www.dropbox.com/s/eyttz30cbzzjs15/model_best_L960_FL14135_dsflipFL13638_hrnet_sata_LR1e4.pth?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them into output/refuge/fovea_net/refuge/.
 
@@ -44,7 +44,7 @@ Input image is down-sampled and fed into the coarse network to get the per-pixel
     ├── OMIA9-ZIAN
     ├── sata-data
 ```
-5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/bmzx1h1byiexn6v/Dataset-Refuge.zip?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/TBD (password: xxxx), and put them in ${DATA_ROOT};
+5.1 Download REFUGE dataset (https://refuge.grand-challenge.org) from either https://www.dropbox.com/s/bmzx1h1byiexn6v/Dataset-Refuge.zip?dl=0 or Baidu Yun Drive: https://pan.baidu.com/s/1kLSXOEnzMPnwTAisMHb2GQ (password: kpvt), and put them in ${DATA_ROOT};
 
 5.2 Download AGE dataset (https://refuge.grand-challenge.org) from Baidu Yun Drive: https://pan.baidu.com/s/15dd7eYDJf1H8nZ7ZA3BC_Q (password: b232), and put them in ${DATA_ROOT}.
 
@@ -83,7 +83,7 @@ ZIAN with HRNET for scleral spur localization in AS-OCT images
 python3 tools/train.py --cfg experiments/refuge-age.yaml MODEL.SELF_ATTEN True MODEL.TRIP_ROI True MODEL.CO_ATTEN True MODEL.HRNET_TYPE 0 TRAIN.LR 0.0006 TRAIN.END_EPOCH 140 TRAIN.BATCH_SIZE_PER_GPU 4
 ```
 
-## If you find this repository useful, please cite our paper:
+## If you find this repository useful, please cite our paper in MICCAI OMIA9 workshop in 2022:
  
     @misc{lei2022zian,
     title={Localizing Anatomical Landmarks in Ocular Images using Zoom-In Attentive Networks},
