@@ -84,9 +84,33 @@ python3 tools/train.py --cfg experiments/refuge-age.yaml MODEL.SELF_ATTEN True M
 ```
 
 ## If you find this repository useful, please cite our paper in MICCAI OMIA9 workshop in 2022:
- 
-    @misc{lei2022zian,
-    title={Localizing Anatomical Landmarks in Ocular Images using Zoom-In Attentive Networks},
-    author={Xiaofeng Lei, Shaohua Li, Xinxing Xu, Huazhu Fu, Yong Liu, Yih-Chung Tham, Yangqin Feng, Mingrui Tan, Yanyu Xu, Jocelyn Hui Lin Goh, Rick Siow Mong Goh, and Ching-Yu Cheng},
-    year={2022},
-    }
+
+Lei, X. et al. (2022). Localizing Anatomical Landmarks in Ocular Images Using Zoom-In Attentive Networks. In: Antony, B., Fu, H., Lee, C.S., MacGillivray, T., Xu, Y., Zheng, Y. (eds) Ophthalmic Medical Image Analysis. OMIA 2022. Lecture Notes in Computer Science, vol 13576. Springer, Cham. https://doi.org/10.1007/978-3-031-16525-2_10
+
+@InProceedings{10.1007/978-3-031-16525-2_10,
+author="Lei, Xiaofeng
+and Li, Shaohua
+and Xu, Xinxing
+and Fu, Huazhu
+and Liu, Yong
+and Tham, Yih-Chung
+and Feng, Yangqin
+and Tan, Mingrui
+and Xu, Yanyu
+and Goh, Jocelyn Hui Lin
+and Goh, Rick Siow Mong
+and Cheng, Ching-Yu",
+editor="Antony, Bhavna
+and Fu, Huazhu
+and Lee, Cecilia S.
+and MacGillivray, Tom
+and Xu, Yanwu
+and Zheng, Yalin",
+title="Localizing Anatomical Landmarks in Ocular Images Using Zoom-In Attentive Networks",
+booktitle="Ophthalmic Medical Image Analysis",
+year="2022",
+publisher="Springer International Publishing",
+address="Cham",
+pages="94--104",
+isbn="978-3-031-16525-2"
+}
